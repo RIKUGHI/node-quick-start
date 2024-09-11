@@ -1,6 +1,6 @@
 import supertest from "supertest"
 import { web } from '../src/app/web'
-import { logger } from '../src/app/logging'
+import { logger } from '../src/app/logger'
 
 describe('GET /', () => {
   it('should succeed', async () => {
