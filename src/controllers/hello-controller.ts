@@ -1,8 +1,14 @@
 import { NextFunction, Request, Response } from "express";
-import { HelloService } from "../services/hello-service";
+import { IHelloService } from "../interfaces/hello-service";
 
 export class HelloController {
-  static hello(req: Request, res: Response, next: NextFunction) {
-    res.status(200).json(HelloService.getHello())
+  private service: IHelloService
+
+  constructor(service: IHelloService) {
+    this.service = service
+  }
+
+  onHello(req: Request, res: Response, next: NextFunction) {
+    res.status(200).json(this.service.getHello())
   }
 }
