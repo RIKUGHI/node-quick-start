@@ -1,5 +1,5 @@
 import supertest from "supertest"
-import { web } from '../src/app/web'
+import web from '../src/app/web'
 import { logger } from '../src/app/logger'
 
 describe('GET /', () => {
