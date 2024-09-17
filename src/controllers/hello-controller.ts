@@ -1,10 +1,15 @@
 import { NextFunction, Request, Response } from "express";
+import { inject, injectable } from "inversify";
 import { IHelloService } from "../interfaces/hello-service";
+import { INTERFACE_TYPE } from "../utils";
 
+@injectable()
 export class HelloController {
   private service: IHelloService
 
-  constructor(service: IHelloService) {
+  constructor(
+    @inject(INTERFACE_TYPE.HelloService) service: IHelloService
+  ) {
     this.service = service
   }
 
